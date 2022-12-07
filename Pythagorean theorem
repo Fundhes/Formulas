@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What are you looking for ?\n"+"1 : Search if rectangle triangle\n"+"2 : Find size of a side\n"+"(Type the number of what you need)");
+        int lookingFor = scanner.nextInt();
+        if(lookingFor == 1){
+            System.out.println("First leg size = ");
+            int legOne = scanner.nextInt();
+            System.out.println("Second leg size = ");
+            int legTwo = scanner.nextInt();
+            System.out.println("Hypotenuse size = ");
+            int hypotenuse = scanner.nextInt();
+            int squareLegOne = legOne * legOne;
+            int squareLegTwo = legTwo * legTwo;
+            int squareHypotenuse = hypotenuse * hypotenuse;
+            if(squareHypotenuse == squareLegOne + squareLegTwo){
+                System.out.println("The triangle is rectangle");
+            }else{
+                System.out.println("The triangle isn't rectangle");
+            }
+        } else if (lookingFor == 2) {
+            System.out.println("What side is missing ?\n"+"1 : Hypotenuse\n"+"2 : Leg side\n"+"(Type the number of what you need)");
+            int lookingForSide = scanner.nextInt();
+            if(lookingForSide == 1){
+                System.out.println("First leg size = ");
+                int legOne = scanner.nextInt();
+                System.out.println("Second leg size = ");
+                int legTwo = scanner.nextInt();
+                int squareLegOne = legOne * legOne;
+                int squareLegTwo = legTwo * legTwo;
+                double squareHypotenuse = squareLegOne + squareLegTwo;
+                double hypotenuse = Math.sqrt(squareHypotenuse);
+                System.out.println("The hypotenuse size is "+hypotenuse);
+            } else if (lookingForSide == 2) {
+                System.out.println("Known leg size = ");
+                int legOne = scanner.nextInt();
+                System.out.println("Hypotenuse size = ");
+                int hypotenuse = scanner.nextInt();
+                int squareLegOne = legOne * legOne;
+                int squareHypotenuse = hypotenuse * hypotenuse;
+                double squareLegTwo = squareHypotenuse - squareLegOne;
+                double legTwo = Math.sqrt(squareLegTwo);
+                System.out.println("The missing leg size is "+legTwo);
+            }else{
+                System.out.println("Please enter a valid number");
+            }
+        }else{
+            System.out.println("Please enter a valid number");
+        }
+    }
+}
